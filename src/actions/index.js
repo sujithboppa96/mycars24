@@ -106,14 +106,14 @@ const products2 = [
   },
   {
     "img": "https://ecs7.tokopedia.net/img/cache/200-square/product-1/2019/11/27/6041270/6041270_46edf22c-7ac5-4b01-b166-ca9dbd3444be_869_869.jpg.webp",
-    "name": "samsung Watch",
+    "name": "Samsung Watch",
     "price": "2000",
     "id": 5,
     "category": "Electronics"
   },
   {
     "img": "https://ecs7.tokopedia.net/img/cache/200-square/attachment/2019/11/6/157302369912918/157302369912918_6fbb518f-f0fc-4241-96d3-1dca699f4c15.png.webp",
-    "name": "boat Ear Phones",
+    "name": "Boat Ear Phones",
     "price": "3000",
     "id": 6,
     "category": "Electronics"

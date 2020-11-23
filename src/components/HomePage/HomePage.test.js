@@ -38,7 +38,7 @@ describe('<HomePage />', () => {
         expect(wrapper.find(InputLabel)).toHaveLength(1);
         expect(wrapper.find(FormControl)).toHaveLength(1);
         expect(wrapper.find(Select)).toHaveLength(1);
-        expect(wrapper.find(Checkbox)).toHaveLength(5);
+        expect(wrapper.find(Checkbox)).toHaveLength(9);
         expect(wrapper.find(Header)).toHaveLength(1);
         expect(wrapper.find(FormControl)).toHaveLength(1);
     });

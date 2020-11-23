@@ -33,7 +33,8 @@ export class HomePage extends React.Component {
       index: 1,
       priceValue: [0, 4000],
       sortValue: '',
-      productFilters: []
+      productFilters: [],
+      brandFilters:[]
     }
   }
 
@@ -73,6 +74,16 @@ export class HomePage extends React.Component {
     return bool
   }
 
+  getFilterBrand = (name) => {
+    let bool = false
+    for (let i = 0; i < this.state.brandFilters.length; i++) {
+      if (name.includes(this.state.brandFilters[i])) {
+        bool = true
+      }
+    }
+    return bool
+  }
+
   getItems = () => {
     let items = this.props.products ? [...this.props.products] : []
 
@@ -91,7 +102,6 @@ export class HomePage extends React.Component {
       if (this.state.sortValue === -1) {
         items = this.props.products
       }
-
     }
     if (this.state.seacrhValue && this.props.products) {
       items = this.props.products.filter((x) => {
@@ -106,6 +116,11 @@ export class HomePage extends React.Component {
     if (this.state.productFilters && this.state.productFilters.length) {
       items = items.filter((x) => {
         return this.getFilterc(x.category)
+      })
+    }
+    if (this.state.brandFilters && this.state.brandFilters.length) {
+      items = items.filter((x) => {
+        return this.getFilterBrand(x.name)
       })
     }
     console.log(items, 'items')
@@ -124,14 +139,17 @@ export class HomePage extends React.Component {
       return <div>Price: Low To High</div>
     } else if (this.state.sortValue === 2) {
       return <div>Price: High To Low</div>
-    }
-    else if(this.state.sortValue === -1) {
+    } else if (this.state.sortValue === -1) {
       return <div>None</div>
     }
   }
 
   isProductFilterChecked = (e) => {
     return this.state.productFilters.indexOf(e) !== -1
+  }
+
+  isBrandFilterChecked = (e) => {
+    return this.state.brandFilters.indexOf(e) !== -1
   }
 
   handleProductFiltersChange = (e) => {
@@ -146,9 +164,21 @@ export class HomePage extends React.Component {
     }
   }
 
-  handleSearchChange= (value) => {
+  handleBrandFiltersChange = (e) => {
+    let brandFilters = this.state.brandFilters
+    let index = this.state.brandFilters.indexOf(e.target.name)
+    if (e.target.checked && index === -1) {
+      brandFilters.push(e.target.name)
+      this.setState({ brandFilters: brandFilters })
+    } else if (!e.target.checked) {
+      brandFilters.splice(index, 1)
+      this.setState({ brandFilters: brandFilters })
+    }
+  }
+
+  handleSearchChange = (value) => {
     console.log('searchchange from homepage')
-    this.setState({seacrhValue: value})
+    this.setState({ seacrhValue: value })
   }
 
   render() {
@@ -164,7 +194,7 @@ export class HomePage extends React.Component {
     }
     return (
       <div>
-        <Header handleSearchChange={this.handleSearchChange}/>
+        <Header handleSearchChange={this.handleSearchChange} />
         <div className="filteringContaier">
           <div className="filterDetails">
             <b>Filters</b>
@@ -190,9 +220,7 @@ export class HomePage extends React.Component {
                 onChange={(value) => this.handleSortChange(value)}
                 label="Age"
               >
-                <MenuItem value={-1}>
-                  None
-                </MenuItem>
+                <MenuItem value={-1}>None</MenuItem>
                 <MenuItem value={1}>Price: Low To High</MenuItem>
                 <MenuItem value={2}>Price: High To Low</MenuItem>
               </Select>
@@ -225,7 +253,7 @@ export class HomePage extends React.Component {
             <div className="filter">
               <div>CATEGORIES</div>
               <div className="category">
-                <div  className="CategoryCheckBox">
+                <div className="CategoryCheckBox">
                   <Checkbox
                     checked={this.isProductFilterChecked('Shoes')}
                     color="primary"
@@ -258,7 +286,7 @@ export class HomePage extends React.Component {
                 <div className="categoryHeader">Clothes</div>
               </div>
               <div className="category">
-                <div  className="CategoryCheckBox">
+                <div className="CategoryCheckBox">
                   <Checkbox
                     checked={this.isProductFilterChecked('Ornaments')}
                     color="primary"
@@ -269,7 +297,7 @@ export class HomePage extends React.Component {
                 <div className="categoryHeader">Ornaments</div>
               </div>
               <div className="category">
-                <div  className="CategoryCheckBox">
+                <div className="CategoryCheckBox">
                   <Checkbox
                     checked={this.isProductFilterChecked('Kitchenware')}
                     color="primary"
@@ -278,6 +306,54 @@ export class HomePage extends React.Component {
                   />
                 </div>
                 <div className="categoryHeader">Kitchenware</div>
+              </div>
+            </div>
+            <hr/>
+            <div className="filter">
+              <div>BRAND</div>
+              <div className="category">
+                <div className="CategoryCheckBox">
+                  <Checkbox
+                    checked={this.isBrandFilterChecked('Levis')}
+                    color="primary"
+                    onChange={this.handleBrandFiltersChange}
+                    name="Levis"
+                  />
+                </div>
+                <div className="categoryHeader">Levis</div>
+              </div>
+              <div className="category">
+                <div>
+                  <Checkbox
+                    checked={this.isBrandFilterChecked('Adidas')}
+                    color="primary"
+                    onChange={this.handleBrandFiltersChange}
+                    name="Adidas"
+                  />
+                </div>
+                <div className="categoryHeader">Adidas</div>
+              </div>
+              <div className="category">
+                <div>
+                  <Checkbox
+                    checked={this.isBrandFilterChecked('Boat')}
+                    color="primary"
+                    onChange={this.handleBrandFiltersChange}
+                    name="Boat"
+                  />
+                </div>
+                <div className="categoryHeader">Boat</div>
+              </div>
+              <div className="category">
+                <div className="CategoryCheckBox">
+                  <Checkbox
+                    checked={this.isBrandFilterChecked('Samsung')}
+                    color="primary"
+                    onChange={this.handleBrandFiltersChange}
+                    name="Samsung"
+                  />
+                </div>
+                <div className="categoryHeader">Samsung</div>
               </div>
             </div>
           </div>
