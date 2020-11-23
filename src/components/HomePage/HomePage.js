@@ -95,7 +95,7 @@ export class HomePage extends React.Component {
     }
     if (this.state.seacrhValue && this.props.products) {
       items = this.props.products.filter((x) => {
-        return x.name.includes(this.state.seacrhValue.toString())
+        return x.name.toLowerCase().includes(this.state.seacrhValue.toString().toLowerCase())
       })
     }
     if (this.state.priceValue.length && this.props.products) {
