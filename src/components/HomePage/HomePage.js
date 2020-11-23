@@ -312,7 +312,6 @@ export class HomePage extends React.Component {
                         </div>
                         <div>{i.name}</div>
                         <div>{`$${i.price}`}</div>
-                        <div>{i.category}</div>
                       </div>
                     ))}
                 </div>
