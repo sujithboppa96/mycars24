@@ -1,0 +1,100 @@
+
+.listItems {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+    /* width: 20%; */
+      /* padding: 5px; */
+      margin: 10px;
+      padding: 15px;
+
+}
+
+.card:hover {
+    background-color: #2768a0
+}
+
+.MuiFormControl-root{
+    width: 100%;
+}
+
+.sortDropDown {
+    float:right;
+    width:20%;
+    margin-right: 15px;
+}
+
+.breakLine {
+    clear: both;
+}
+
+.filteringContaier {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    position: sticky;
+    top: 75px;
+    background-color: ghostwhite;
+}
+
+.mainContainer {
+    display:flex;
+}
+
+.container1 {
+    width: 20%;
+    border-right: 1px solid lightgray;
+    padding: 15px;
+}
+
+.itemsContainer {
+    max-width: 80%;
+}
+
+.MuiPaper-rounded {
+    background-color: gainsboro;
+}
+
+.Loading {
+    text-align: center;
+    margin-top: 20%;
+}
+
+.filterDetails {
+    margin-top: 10px;
+}
+
+.productImage {
+    width: 100%;
+}
+
+.priceFooter {
+    display: flex;
+    justify-content: space-between;
+}
+
+.category {
+    display: flex;
+}
+
+.CategoryCheckBox {
+
+}
+
+.categoryHeader {
+    padding-top: 9px;
+    padding-left: 20px;
+}
+
+.filter {
+    margin-bottom: 15px;
+}

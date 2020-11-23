@@ -1,0 +1,30 @@
+.header {
+    display: flex;
+    height: 55px;
+    padding: 10px;
+    position: sticky;
+    z-index: 2;
+    top: 0;
+    background-color: #2768a0;
+
+}
+
+.imgContainer {
+    margin-left:50px;
+    width:40%;
+}
+
+.cars24Img {
+    height: 50px;
+    border: 1px #2768a0;
+    border-radius: 12%;
+}
+
+.searchBar {
+    /* margin-top: 5px; */
+    width: 30%;
+}
+.Profile {
+    margin-left: 17%;
+    width: 5%;
+}
