@@ -105,7 +105,7 @@ export class HomePage extends React.Component {
     }
     if (this.state.productFilters && this.state.productFilters.length) {
       items = items.filter((x) => {
-        return this.getFilterc(x.name)
+        return this.getFilterc(x.category)
       })
     }
     console.log(items, 'items')
@@ -227,57 +227,57 @@ export class HomePage extends React.Component {
               <div className="category">
                 <div  className="CategoryCheckBox">
                   <Checkbox
-                    checked={this.isProductFilterChecked('Product 1')}
+                    checked={this.isProductFilterChecked('Shoes')}
                     color="primary"
                     onChange={this.handleProductFiltersChange}
-                    name="Product 1"
+                    name="Shoes"
                   />
                 </div>
-                <div className="categoryHeader">Product 1</div>
+                <div className="categoryHeader">Shoes</div>
               </div>
               <div className="category">
                 <div>
                   <Checkbox
-                    checked={this.isProductFilterChecked('Product 2')}
+                    checked={this.isProductFilterChecked('Electronics')}
                     color="primary"
                     onChange={this.handleProductFiltersChange}
-                    name="Product 2"
+                    name="Electronics"
                   />
                 </div>
-                <div className="categoryHeader">Product 2</div>
+                <div className="categoryHeader">Electronics</div>
               </div>
               <div className="category">
                 <div>
                   <Checkbox
-                    checked={this.isProductFilterChecked('Product 3')}
+                    checked={this.isProductFilterChecked('Clothes')}
                     color="primary"
                     onChange={this.handleProductFiltersChange}
-                    name="Product 3"
+                    name="Clothes"
                   />
                 </div>
-                <div className="categoryHeader">Product 3</div>
+                <div className="categoryHeader">Clothes</div>
               </div>
               <div className="category">
                 <div  className="CategoryCheckBox">
                   <Checkbox
-                    checked={this.isProductFilterChecked('Product 4')}
+                    checked={this.isProductFilterChecked('Ornaments')}
                     color="primary"
                     onChange={this.handleProductFiltersChange}
-                    name="Product 4"
+                    name="Ornaments"
                   />
                 </div>
-                <div className="categoryHeader">Product 4</div>
+                <div className="categoryHeader">Ornaments</div>
               </div>
               <div className="category">
                 <div  className="CategoryCheckBox">
                   <Checkbox
-                    checked={this.isProductFilterChecked('Product 5')}
+                    checked={this.isProductFilterChecked('Kitchenware')}
                     color="primary"
                     onChange={this.handleProductFiltersChange}
-                    name="Product 5"
+                    name="Kitchenware"
                   />
                 </div>
-                <div className="categoryHeader">Product 5</div>
+                <div className="categoryHeader">Kitchenware</div>
               </div>
             </div>
           </div>
@@ -312,6 +312,7 @@ export class HomePage extends React.Component {
                         </div>
                         <div>{i.name}</div>
                         <div>{`$${i.price}`}</div>
+                        <div>{i.category}</div>
                       </div>
                     ))}
                 </div>

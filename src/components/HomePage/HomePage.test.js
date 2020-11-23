@@ -26,12 +26,12 @@ describe('<HomePage />', () => {
         expect(wrapper.find('Loading')).toHaveLength(1);
     });
     it('should not render Loading when proper props are feeded', () => {
-        wrapper.setProps({products:[{name:'product', img:'img',id:'6',price:560}]})
+        wrapper.setProps({products:[{name:'product', img:'img',id:'6',price:560, category:'Electronics'}]})
         expect(wrapper.find('Loading')).toHaveLength(0);
     });
 
     it('should render the following static components', () => {
-        wrapper.setProps({products:[{name:'product', img:'img',id:'6',price:'567'}]})
+        wrapper.setProps({products:[{name:'product', img:'img',id:'6',price:'567',category:'Electronics'}]})
         expect(wrapper.find(InfiniteScroll)).toHaveLength(1);
         expect(wrapper.find(Slider)).toHaveLength(1);
         expect(wrapper.find(MenuItem)).toHaveLength(3);
@@ -44,7 +44,7 @@ describe('<HomePage />', () => {
     });
 
     it('should render following classes with proper props', () => {
-        wrapper.setProps({products:[{name:'product', img:'img',id:'6',price:'567'}]})
+        wrapper.setProps({products:[{name:'product', img:'img',id:'6',price:'567',category:'Electronics'}]})
         expect(wrapper.find('.filteringContaier')).toHaveLength(1);
         expect(wrapper.find('.sortDropDown')).toHaveLength(1);
         expect(wrapper.find('.mainContainer')).toHaveLength(1);
@@ -52,18 +52,18 @@ describe('<HomePage />', () => {
     });
 
     it('should render NotFound when search criteria does not match', () => {
-        wrapper = shallow(<HomePage getProducts={() => {}} products={[{name:'product', img:'img',id:'6',price:876}]}/>)
+        wrapper = shallow(<HomePage getProducts={() => {}} products={[{name:'product', img:'img',id:'6',price:876,category:'Electronics'}]}/>)
         wrapper.setState({seacrhValue: 'h'})
         expect(wrapper.find('NotFound')).toHaveLength(1);
     });
     it('should render NOtFound Msg when price filters does not match', () => {
-        wrapper = shallow(<HomePage getProducts={() => {}} products={[{name:'product', img:'img',id:'6',price:876}]}/>)
+        wrapper = shallow(<HomePage getProducts={() => {}} products={[{name:'product', img:'img',id:'6',price:876, category:'Electronics'}]}/>)
         wrapper.setState({seacrhValue: 'p'})
         wrapper.setState({priceValue:[50,700]})
         expect(wrapper.find('NotFound')).toHaveLength(1);
     });
     it('should not render Loading when price filters matched', () => {
-        wrapper = shallow(<HomePage getProducts={() => {}} products={[{name:'product', img:'img',id:'6',price:876}]}/>)
+        wrapper = shallow(<HomePage getProducts={() => {}} products={[{name:'product', img:'img',id:'6',price:876, category:'Electronics'}]}/>)
         wrapper.setState({seacrhValue: 'p'})
         wrapper.setState({priceValue:[50,900]})
         expect(wrapper.find('Loading')).toHaveLength(0);
@@ -91,7 +91,7 @@ describe('<HomePage />', () => {
 
     it('should call getFilterc method', () => {
         const instance = wrapper.instance();
-        wrapper.setProps({products:[{name:'product', img:'img',id:'6',price:'567'}]})
+        wrapper.setProps({products:[{name:'product', img:'img',id:'6',price:'567', category:'Electronics'}]})
         wrapper.setState({productFilters: ['Product1']})
         expect(instance.getFilterc('Product1')).toBe(true)
         wrapper.setState({productFilters: ['Product8']})
@@ -100,15 +100,15 @@ describe('<HomePage />', () => {
 
     it('should call getItems method', () => {
         const instance = wrapper.instance();
-        wrapper.setProps({products:[{name:'product', img:'img',id:'6',price:'567'}]})
+        wrapper.setProps({products:[{name:'product', img:'img',id:'6',price:'567',category:'Electronics'}]})
         expect(instance.getItems()).toHaveLength(1)
-        wrapper.setProps({products:[{name:'product', img:'img',id:'6',price:'567'}, {name:'product', img:'img',id:'6',price:'567'}]})
+        wrapper.setProps({products:[{name:'product', img:'img',id:'6',price:'567',category:'Electronics'}, {name:'product', img:'img',id:'6',price:'567',category:'Electronics'}]})
         expect(instance.getItems()).toHaveLength(2)
     });
 
     it('should call displaySortValue method', () => {
         const instance = wrapper.instance();
-        wrapper.setProps({products:[{name:'product', img:'img',id:'6',price:'567'}]})
+        wrapper.setProps({products:[{name:'product', img:'img',id:'6',price:'567',category:'Electronics'}]})
         expect(wrapper.find('.filterDetails')).toHaveLength(3)
         wrapper.setState({sortValue: 'sujith'})
         instance.displaySortValue()
@@ -117,7 +117,7 @@ describe('<HomePage />', () => {
 
     it('should call isProductFilterChecked method', () => {
         const instance = wrapper.instance();
-        wrapper.setProps({products:[{name:'product', img:'img',id:'6',price:'567'}]})
+        wrapper.setProps({products:[{name:'product', img:'img',id:'6',price:'567',category:'Electronics'}]})
         wrapper.setState({productFilters: ['Product 1','Product2']})
         expect(instance.isProductFilterChecked('Product 1')).toBe(true)
         expect(instance.isProductFilterChecked('Product 8')).toBe(false)
@@ -126,7 +126,7 @@ describe('<HomePage />', () => {
 
     it('should call handleProductFiltersChange method', () => {
         const instance = wrapper.instance();
-        wrapper.setProps({products:[{name:'product 3', img:'img',id:'6',price:'567'}]})
+        wrapper.setProps({products:[{name:'product 3', img:'img',id:'6',price:'567',category:'Electronics'}]})
         wrapper.setState({productFilters: ['Product 1','Product2']})
         instance.handleProductFiltersChange({target: {name: 'Product 3', checked: true}})
         expect(wrapper.state('productFilters')).toStrictEqual(['Product 1','Product2', 'Product 3'])
