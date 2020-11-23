@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/mycars24/static/css/main.817679d4.chunk.css",
+    "main.js": "/mycars24/static/js/main.614c4df7.chunk.js",
+    "main.js.map": "/mycars24/static/js/main.614c4df7.chunk.js.map",
+    "runtime-main.js": "/mycars24/static/js/runtime-main.38c849a1.js",
+    "runtime-main.js.map": "/mycars24/static/js/runtime-main.38c849a1.js.map",
+    "static/css/2.55d8add8.chunk.css": "/mycars24/static/css/2.55d8add8.chunk.css",
+    "static/js/2.7fc69f58.chunk.js": "/mycars24/static/js/2.7fc69f58.chunk.js",
+    "static/js/2.7fc69f58.chunk.js.map": "/mycars24/static/js/2.7fc69f58.chunk.js.map",
+    "static/js/3.9a3c7ddd.chunk.js": "/mycars24/static/js/3.9a3c7ddd.chunk.js",
+    "static/js/3.9a3c7ddd.chunk.js.map": "/mycars24/static/js/3.9a3c7ddd.chunk.js.map",
+    "index.html": "/mycars24/index.html",
+    "static/css/2.55d8add8.chunk.css.map": "/mycars24/static/css/2.55d8add8.chunk.css.map",
+    "static/css/main.817679d4.chunk.css.map": "/mycars24/static/css/main.817679d4.chunk.css.map",
+    "static/js/2.7fc69f58.chunk.js.LICENSE.txt": "/mycars24/static/js/2.7fc69f58.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.38c849a1.js",
+    "static/css/2.55d8add8.chunk.css",
+    "static/js/2.7fc69f58.chunk.js",
+    "static/css/main.817679d4.chunk.css",
+    "static/js/main.614c4df7.chunk.js"
+  ]
+}
