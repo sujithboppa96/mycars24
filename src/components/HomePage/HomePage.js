@@ -74,12 +74,8 @@ export class HomePage extends React.Component {
   }
 
   getItems = () => {
-    let items = this.props.products
-    if (this.state.seacrhValue && items) {
-      items = this.props.products.filter((x) => {
-        return x.name.includes(this.state.seacrhValue.toString())
-      })
-    }
+    let items = this.props.products ? [...this.props.products] : []
+
     if (this.state.sortValue) {
       console.log(this.state.sortValue, 'this.state.sortValue')
       if (this.state.sortValue === 1) {
@@ -93,9 +89,14 @@ export class HomePage extends React.Component {
         })
       }
       if (this.state.sortValue === -1) {
-        items = items
+        items = this.props.products
       }
 
+    }
+    if (this.state.seacrhValue && this.props.products) {
+      items = this.props.products.filter((x) => {
+        return x.name.includes(this.state.seacrhValue.toString())
+      })
     }
     if (this.state.priceValue.length && this.props.products) {
       items = items.filter((x) => {
